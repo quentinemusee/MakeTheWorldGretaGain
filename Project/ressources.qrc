@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/ressources">
+        <file>images/greta.png</file>
+        <file>images/gretaS.png</file>
+        <file>images/floorTest.png</file>
+        <file>images/TrumpetCACS.png</file>
+        <file>images/TrumpetDISS.png</file>
+        <file>images/bulletS.png</file>
+        <file>images/trumpetS.png</file>
+        <file>images/floor1S.png</file>
+        <file>images/platformGreyS.png</file>
+        <file>images/poopBullet1S.png</file>
+        <file>images/poopBullet2S.png</file>
+        <file>images/poopBullet3S.png</file>
+        <file>images/explosionS.png</file>
+        <file>images/nuclearS.png</file>
+        <file>images/largePipeS.png</file>
+        <file>images/shortPipeS.png</file>
+        <file>images/flyingFloor1.png</file>
+        <file>images/gridS.png</file>
+        <file>images/GGS.png</file>
+        <file>images/backgroundS.png</file>
+        <file>sounds/mainMusiqueS.mp3</file>
+    </qresource>
+</RCC>
