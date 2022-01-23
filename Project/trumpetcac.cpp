@@ -19,7 +19,6 @@ TrumpetCAC::TrumpetCAC(QObject *parent, const qreal y, const qreal efficientX, c
 void TrumpetCAC::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->drawPixmap(0, 0, pixmap(), m_spriteCounter*TRUMPETCAC_WIDTH, (m_lastDirection == direction::LEFT)*TRUMPETCAC_HEIGHT, TRUMPETCAC_WIDTH, TRUMPETCAC_HEIGHT);
-    //setTransformOriginPoint(boundingRect().center());
     Q_UNUSED(widget);
     Q_UNUSED(option);
 }

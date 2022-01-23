@@ -168,8 +168,6 @@ void Trumpet::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
 
             break;
     }
-
-    //setTransformOriginPoint(boundingRect().center());
     Q_UNUSED(widget);
     Q_UNUSED(option);
 }

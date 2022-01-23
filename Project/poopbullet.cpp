@@ -34,7 +34,6 @@ PoopBullet::PoopBullet(QObject *parent, const qreal efficientX, const qreal effi
 void PoopBullet::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->drawPixmap(0, 0, pixmap(), 0, 0, m_width, m_height);
-    //setTransformOriginPoint(boundingRect().center());
     Q_UNUSED(widget);
     Q_UNUSED(option);
 }

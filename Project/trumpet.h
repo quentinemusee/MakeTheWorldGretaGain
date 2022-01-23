@@ -42,7 +42,6 @@ class Trumpet : public Character
         /* Actions functions */
         void updateState(QList<Entity*> *entitiesList);
         void moveDirection(QList<Entity*> *entitiesList) override;
-        //virtual void attack(QList<Entity*> *entitiesList) override {Q_UNUSED(entitiesList);return;}
         void attack(QList<Entity*> *entitiesList) override;
         void repulseGreta(QList<Entity*> *entitiesList);
         void jump() override;

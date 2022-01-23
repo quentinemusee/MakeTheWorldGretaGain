@@ -18,7 +18,6 @@ Explosion::Explosion(QObject *parent, const qreal efficientX, const qreal effici
 void Explosion::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->drawPixmap(0, 0, pixmap(), (m_spriteCounter%8)*m_width, (m_spriteCounter/8)*m_height, m_width, m_height);
-    //setTransformOriginPoint(boundingRect().center());
     Q_UNUSED(widget);
     Q_UNUSED(option);
 }

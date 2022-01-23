@@ -83,8 +83,6 @@ void Platform::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
         painter->drawPixmap(m_efficientX + 23, m_efficientY, pixmap(), 80, 0, 57, m_height);
     else
         painter->drawPixmap(m_efficientX, m_efficientY, pixmap(), 0, 0, m_width, m_height);
-    //setTransformOriginPoint(boundingRect().center());
-    //painter->drawPath(this->shape());
     Q_UNUSED(widget);
     Q_UNUSED(option);
 }

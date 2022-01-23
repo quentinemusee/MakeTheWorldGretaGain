@@ -22,10 +22,8 @@ class MainWindow : public QGraphicsView
         /* Action functions */
         void killAllTrumpet() {m_killAllTrumpetFlag = true;}
 
-        /* Getters and setters */
-        //InGameScene* scene() {return c_scene;}
-
     public slots :
+        /* Update functions */
         void updateX();
 
     private :

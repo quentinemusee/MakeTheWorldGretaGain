@@ -74,7 +74,6 @@ void Greta::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
         painter->setPen(QColor::fromRgb(0, 0, 0, 0));
     }
 
-    //setTransformOriginPoint(boundingRect().center());
     Q_UNUSED(widget);
     Q_UNUSED(option);
 }
@@ -100,7 +99,7 @@ void Greta::keyPressEvent(QKeyEvent *event)
 {
     if (event->isAutoRepeat())
         return;
-    //qDebug() << "Touche pressée : " << event->keyCombination();
+
     m_shiftFlag = (event->modifiers() & Qt::ShiftModifier);
     switch(event->key())
     {
@@ -133,7 +132,7 @@ void Greta::keyReleaseEvent(QKeyEvent *event)
 {
     if (event->isAutoRepeat())
         return;
-    //qDebug() << "Touche relâchée : " << event->keyCombination();
+
     m_shiftFlag = (event->modifiers() & Qt::ShiftModifier);
     switch(event->key())
     {
@@ -217,7 +216,6 @@ void Greta::moveDirection(QList<Entity*> *entitiesList, const bool centerFlag)
     {
         moveBy(-horizontalOffset, 0);
         if ((centerFlag && (m_efficientX - horizontalOffset >= 0)) || !m_fitInView)
-            //move(-horizontalOffset, 0);
             *this+=(-horizontalOffset);
         else
             if (collidingItems().isEmpty() && (m_efficientX - horizontalOffset >= 0))
@@ -230,14 +228,6 @@ void Greta::moveDirection(QList<Entity*> *entitiesList, const bool centerFlag)
             else
             {
                 m_isMoving = false;
-                /*
-                while (!collidingItems().isEmpty())
-                {
-                    m_efficientX--;
-                    for (qsizetype i = 1; i < entitiesList->length(); i++)
-                       entitiesList->at(i)->moveBy(1, 0);
-                }
-                */
             }
         if (m_lastDirection == direction::LEFT)
             incrementFrameCounter();
@@ -319,12 +309,10 @@ void Greta::jump()
     {
         if (m_jumpCount > 5)
         {
-            //move(0, -14 + (m_jumpCount < 10)*5);
             *this+=((-14 + (m_jumpCount < 10)*5)/100.0f);
             if (!collidingItems().isEmpty())
                 m_jumpCount = 0;
             while (!collidingItems().isEmpty())
-                //move(0, 1);
                 *this+=(1/100.0f);
             m_jumpCount--;
         }
@@ -334,12 +322,10 @@ void Greta::jump()
         }
         else
         {
-            //move(0, 15);
             *this+=(15/100.0f);
             if (!collidingItems().isEmpty())
             {
                 while (!collidingItems().isEmpty())
-                    //move(0, -1);
                     *this+=(-1/100.0f);
                 m_isJumping = false;
                 resetFrameCounter(m_lastDirection);
@@ -355,14 +341,12 @@ void Greta::fall()
 {
     if (!m_isJumping && m_canFall)
     {
-        //move(0, 15);
         *this+=(15/100.0f);
         if (collidingItems().isEmpty())
             m_canJump = false;
         else
             m_canJump = true;
         while (!collidingItems().isEmpty())
-            //move(0, -1);
             *this+=(-1/100.0f);
     }
 }
@@ -383,7 +367,6 @@ bool Greta::revive()
     if (m_isDead)
     {
         bool res = false;
-        //move(0, 1);
         *this+=(1/100.0f);
         if (!collidingItems().isEmpty())
         {
@@ -401,23 +384,6 @@ bool Greta::revive()
 
 bool Greta::updateX(QList<Entity*> *entitiesList, const bool centerFlag)
 {
-    /*
-    qDebug() << "------------------";
-    qDebug() << x();
-    qDebug() << efficientX();
-    qDebug() << y();
-    qDebug() << efficientY();
-    qDebug() << "------------------";
-    */
-    /*
-    qDebug() << "------------------";
-    qDebug() << "Mario's efficientY = " << m_efficientY;
-    qDebug() << "Mario's Y = " << y();
-    qDebug() << "Mario's efficientX = " << m_efficientX;
-    qDebug() << "Mario's X = " << x();
-    qDebug() << "------------------";
-    */
-
     moveDirection(entitiesList, centerFlag);
     attack(entitiesList);
     jump();

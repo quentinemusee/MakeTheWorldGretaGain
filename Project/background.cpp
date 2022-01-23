@@ -16,7 +16,6 @@ Background::Background(QObject *parent, const qreal efficientX, const qreal effi
 void Background::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->drawPixmap(0, 0, pixmap(), 0, 0, m_width, m_height);
-    //setTransformOriginPoint(boundingRect().center());
     Q_UNUSED(widget);
     Q_UNUSED(option);
 }
@@ -42,5 +41,4 @@ QRectF Background::boundingRect() const
 void Background::updateX(QList<Entity*> *entitiesList, const bool centerFlag)
 {
     moveDirection(entitiesList, centerFlag);
-    //qDebug() << ""
 }

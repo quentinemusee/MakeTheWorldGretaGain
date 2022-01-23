@@ -25,7 +25,6 @@ class Character : public Entity
         qsizetype jumpCount() const                   {return m_jumpCount;            }
 
         /* Collisions functions */
-        //virtual QRectF boundingRect() const override = 0;
         virtual QPainterPath shape() const override {
                                                         QPainterPath path;
                                                         path.addRect(boundingRect());

@@ -16,9 +16,6 @@ TrumpetDIS::TrumpetDIS(QObject *parent, const qreal y, const qreal efficientX, c
 void TrumpetDIS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->drawPixmap(0, 0, pixmap(), m_spriteCounter*TRUMPETDIS_WIDTH, (m_lastDirection == direction::LEFT)*TRUMPETDIS_HEIGHT, TRUMPETDIS_WIDTH, TRUMPETDIS_HEIGHT);
-    //for (const auto &bullet : m_bulletsList)
-        //bullet->paint(painter, option, widget);
-    //setTransformOriginPoint(boundingRect().center());
     Q_UNUSED(option);
     Q_UNUSED(widget);
 }
@@ -85,8 +82,6 @@ void TrumpetDIS::attack(QList<Entity*> *entitiesList)
         m_attackCooldownCounter--;
     else
     {
-        //return;
-
         face(greta);
 
         /* Angle for bullet's direction vector computing */

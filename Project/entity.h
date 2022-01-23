@@ -91,6 +91,7 @@ class Entity : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
     public :
+        /* Constructors */
         explicit Entity(QObject *parent = nullptr, const qreal efficientX = 0, const qreal efficientY = 0) : QObject(parent),
                                                                                                              m_efficientX(efficientX),
                                                                                                              m_efficientY(efficientY),
@@ -110,14 +111,7 @@ class Entity : public QObject, public QGraphicsPixmapItem
         qreal height() const     {return m_height;}
         bool invincible() const  {return m_invincible;}
         void efficientX(const qreal efficientX)        {m_efficientX = efficientX;}
-        //void efficientY(const qreal efficientY)        {m_efficientY = efficientY;}
-        //void width(const qreal width)                  {m_width = width;          }
-        //void height(const qreal height)                {m_height = height;        }
         void invincible(const bool invincible)         {m_invincible = invincible;}
-        //void changeEfficientXBy(const qsizetype delta) {m_efficientX += delta;}
-        //void changeEfficientYBy(const qsizetype delta) {m_efficientY += delta;}
-
-        void spriteCounter(const qreal spriteCounter) {m_spriteCounter = spriteCounter; m_frameCounter = m_frameCounterLimit-1;}
 
         /* Utilities functions */
         float distance(const Entity *entity) const {return qSqrt(qPow((m_efficientX - entity->m_efficientX), 2) + qPow((m_efficientY - entity->m_efficientY), 2));}
@@ -131,13 +125,13 @@ class Entity : public QObject, public QGraphicsPixmapItem
                               //this->update();
                          }
         virtual void incrementFrameCounter() = 0;
+        void spriteCounter(const qreal spriteCounter) {m_spriteCounter = spriteCounter; m_frameCounter = m_frameCounterLimit-1;}
         void addItemToScene(Entity *item, QList<Entity*> *entitiesList) {
                                                                              entitiesList->append(item);
                                                                              qobject_cast<QGraphicsScene*>(parent())->addItem(item);
                                                                         }
 
         /* Collisions functions */
-        //virtual QRectF boundingRect() const override = 0;
         virtual QRectF boundingRect() const override {return QRect(0, 0, m_width, m_height);}
         virtual void collision(QList<Entity*> *entitiesList) = 0;
         bool collideWith(const Entity *entity) const {

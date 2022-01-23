@@ -9,6 +9,7 @@ class Update : public QTimer
 {
     Q_OBJECT
     public :
+        /* Constructors */
         explicit Update(QObject *parent = nullptr) : QTimer(parent) {
                                                                         connect(this, SIGNAL(timeout()), parent, SLOT(updateX()));
                                                                         start(UPDATE_PERIOD);
