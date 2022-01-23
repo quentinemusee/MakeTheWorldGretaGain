@@ -5,8 +5,7 @@ int verticalSettingsOffset = 0;
 
 MainWindow::MainWindow(QGraphicsScene *scene, QWidget *parent) : QGraphicsView(scene, parent),
                                                                  m_update(new Update(this)),
-                                                                 m_scene(qobject_cast<InGameScene *>(this->scene())),
-                                                                 m_killAllTrumpetFlag(false)
+                                                                 m_scene(qobject_cast<InGameScene *>(this->scene()))
 {
     m_player.setAudioOutput(&m_audioOutput);
     m_audioOutput.setVolume(50);
@@ -50,9 +49,8 @@ void MainWindow::updateX()
     lastCenterOn = centerFlag;
 
     /* Kill all ennemies except the boss */
-    if (!m_killAllTrumpetFlag && greta->efficientX() >= 20514 && greta->attackCooldownCounter())
+    if (greta->efficientX() >= 20450 && greta->attackCooldownCounter())
     {
-        m_killAllTrumpetFlag = true;
         for (qsizetype i = 1; i < entitiesList->length();)
         {
             if (qobject_cast<TrumpetDIS*>(entitiesList->at(i)) != nullptr || qobject_cast<TrumpetCAC*>(entitiesList->at(i)) != nullptr)

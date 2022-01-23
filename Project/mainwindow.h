@@ -19,9 +19,6 @@ class MainWindow : public QGraphicsView
         /* Destructors */
         virtual ~MainWindow();
 
-        /* Action functions */
-        void killAllTrumpet() {m_killAllTrumpetFlag = true;}
-
     public slots :
         /* Update functions */
         void updateX();
@@ -29,7 +26,6 @@ class MainWindow : public QGraphicsView
     private :
         Update *m_update;
         InGameScene* m_scene;
-        bool m_killAllTrumpetFlag;
         QMediaPlayer m_player;
         QAudioOutput m_audioOutput;
 };

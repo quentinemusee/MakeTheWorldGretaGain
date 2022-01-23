@@ -1,4 +1,4 @@
-QT       += core gui multimedia multimediawidgets
+QT       += core gui multimedia multimediawidgets testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,8 +11,6 @@ CONFIG += c++11 resources_big
 SOURCES += \
     background.cpp \
     bullet.cpp \
-    character.cpp \
-    entity.cpp \
     explosion.cpp \
     greta.cpp \
     ingamescene.cpp \
